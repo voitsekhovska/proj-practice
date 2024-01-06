@@ -1,0 +1,119 @@
+name: Check
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions: write-all
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  html_validator:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Checks HTML5
+      uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+      with:
+        root: ./
+        css: true
+        format: json
+    - run: ls
+    - name: Test report uploaded
+      uses: dorny/test-reporter@v1
+      if: failure()
+      with:
+        name: HTML Validator
+        path: log.log
+        reporter: flutter-json
+    - name: Test report uploaded2
+      uses: dorny/test-reporter@v1
+      with:
+        name: HTML Validator
+        path: log.log
+        reporter: mocha-json
+    - uses: actions/upload-artifact@v3
+      with:
+        name: validator
+        path: log.log
+        if-no-files-found: ignore
+  unit_tests:
+    name: Execute unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Rebasing tests
+        run: |
+          git config --global user.email "${GITHUB_ACTOR}"
+          git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
+          git rebase -X theirs origin/tests
+      - run: npm ci
+      - name: Unit tests execution
+        run: npm run test:unit
+      - name: Test report uploaded
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: JEST Tests
+          path: reports/jest.xml
+          reporter: jest-junit
+  e2e_tests:
+    name: Execute e2e tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Rebasing tests
+        run: |
+          git config --global user.email "${GITHUB_ACTOR}"
+          git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
+          git rebase -X theirs origin/tests
+      - run: npm ci
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          env: type=actual
+          start: npm run server:start
+          wait-on: 'http://127.0.0.1:8080'
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Cypress Tests
+          path: cypress/results/results.xml
+          reporter: jest-junit
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./
+          git-config-name: devfaculty
+          git-config-email: devfaculty@prjctr.com
+
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   if: success() || failure()
+      #   with:
+      #     personal_token: ${{ secrets.PRIVATE_KEY }}
+      #     user_name: 'devfaculty'
+      #     user_email: 'devfaculty@prjctr.com'
+      #     publish_dir: ./
+      #     force_orphan: true

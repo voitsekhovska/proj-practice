@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Жіночі вишиванки Etnodim</title>
+    <link rel="stylesheet" href="fonts/RalewayFont.zip" />
+    <link rel="stylesheet" href="fonts/DelaGothicOne.zip" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <header>
+    <div class="container container--flex header__container">
+      <div class="header__burger container--flex" onclick="openMenu()">
+        <div class="header__burger__line"></div>
+        <div class="header__burger__line"></div>
+        <div class="header__burger__line header__burger__line--short"></div>
+      </div>
+      <div class="header__nav__container">
+        <span
+          class="header__nav header__nav--selected"
+          onclick="openMenuDesktop()"
+          >Каталог</span
+        >
+        <span class="header__nav" onclick="openMenuDesktop()">Знижки</span>
+        <span class="header__nav" onclick="openMenuDesktop()">Блог</span>
+        <span class="header__nav" onclick="openMenuDesktop()">Про нас</span>
+      </div>
+      <img class="logo" src="images/etnodim_logo.svg" alt="Etnodim logo" />
+      <div class="header__nav__container--tablet">
+        <span class="header__nav header__image__arrow">UA</span>
+        <span class="header__image__arrow header__image__arrow--hrn"
+          ><img src="images/hryvnia_nav.svg" alt="Hryvnia"
+        /></span>
+        <span class="header__nav">+38 097 888 92 92</span>
+      </div>
+      <div class="container--flex img__wrap">
+        <img src="images/search_nav.svg" alt="Search" />
+        <div class="cart__wrap">
+          <span class="count">1</span>
+          <img
+            class="img__wrap--quantity"
+            src="images/cart_nav.svg"
+            alt="Shoping cart"
+          />
+        </div>
+      </div>
+    </div>
+    <div id="pop-up" class="container--flex pop-up__wrap">
+      <div class="container--flex pop-up__container pop-up__container--main">
+        <div class="container--flex pop-up--mobile">
+          <img
+            class="pop-up__arrow"
+            src="images/pop-up-arrow.svg"
+            alt="Arrow"
+          />
+          <a class="pop-up__main pop-up__main--mobile" href="#">Каталог</a>
+        </div>
+        <a class="pop-up__main pop-up__main--selected" href="#">жінкам</a>
+        <div class="container--flex pop-up__section--mobile">
+          <a class="pop-up__section" href="#">Вишиті сукні</a>
+          <a class="pop-up__section" href="#">Жіночі вишиванки</a>
+          <a class="pop-up__section" href="#">Конструктор вишиванки</a>
+          <a class="pop-up__section" href="#">Світшоти та светри</a>
+          <a class="pop-up__section" href="#">Футболки</a>
+          <a class="pop-up__section" href="#">Брюки та комбінезони</a>
+          <a class="pop-up__section" href="#">Пальта та куртки</a>
+          <a class="pop-up__section" href="#">Спідниці</a>
+        </div>
+        <a class="pop-up__main" href="#">чоловікам</a>
+        <a class="pop-up__main" href="#">дітям</a>
+        <a class="pop-up__main" href="#">аксесуари</a>
+        <a class="pop-up__main" href="#">дім</a>
+        <div class="selection__wrap container--flex">
+          <p
+            class="selection__wrap__currency selection__wrap__currency--selected"
+          >
+            UA
+          </p>
+          <p class="selection__wrap__currency">RU</p>
+          <p class="selection__wrap__currency">EN</p>
+          <div class="currency__line"></div>
+          <img src="images/hryvnia_nav.svg" alt="Hryvnia" />
+          <img src="images/dollar.png" alt="Dollar" />
+          <img src="images/euro.svg" alt="Euro" />
+        </div>
+      </div>
+      <div
+        class="container--flex pop-up__container pop-up__container--section pop-up--hide"
+      >
+        <a class="pop-up__section" href="#">Вишиті сукні</a>
+        <a class="pop-up__section pop-up__section--selected" href="#"
+          >Жіночі вишиванки</a
+        >
+        <a class="pop-up__section" href="#">Конструктор вишиванки</a>
+      </div>
+      <div
+        class="container--flex pop-up__container pop-up__container--section pop-up--hide"
+      >
+        <a class="pop-up__section" href="#">Світшоти та светри</a>
+        <a class="pop-up__section" href="#">Футболки</a>
+        <a class="pop-up__section" href="#">Брюки та комбінезони</a>
+      </div>
+      <div
+        class="container--flex pop-up__container pop-up__container--section pop-up--hide"
+      >
+        <a class="pop-up__section" href="#">Пальта та куртки</a>
+        <a class="pop-up__section" href="#">Спідниці</a>
+      </div>
+      <img
+        class="pop-up__image pop-up--hide"
+        src="images/pop-up.png"
+        alt="Vyshyvanka"
+      />
+    </div>
+  </header>
+  <body>
+    <div class="container path__container">
+      <p class="path__container__item">Головна</p>
+      <div class="path__container--line"></div>
+      <p class="path__container__item">Жінкам</p>
+      <div class="path__container--line"></div>
+      <p class="path__container__item path__container__item--selected">
+        Жіночі вишиванки
+      </p>
+    </div>
+    <div class="container container--flex">
+      <aside class="side__wrap">
+        <div class="side__container">
+          <div class="checkbox__block checkbox__block__size">
+            <p class="side__container__item side__container__item--select">
+              Розмір
+            </p>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="32" />
+              <label for="32">32 | XXS (53)</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="34" />
+              <label for="34">34 | XS (60)</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="36" />
+              <label for="36">36 | S (60)</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="38" />
+              <label for="38">38 | M (60)</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="40" />
+              <label for="40">40 | L (60)</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="42" />
+              <label for="42">42 | XL (58)</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="46" />
+              <label for="46">46 | XXL (13)</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="size" id="48" />
+              <label for="48">48 | XХXL (4)</label>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <div class="checkbox__block checkbox__block__color">
+            <p class="side__container__item side__container__item--select">
+              Колір
+            </p>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="color" id="white" />
+              <label for="white">білий</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="color" id="black" />
+              <label for="black">чорний</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="color" id="beige" />
+              <label for="beige">бежевий</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="color" id="green" />
+              <label for="green">зелений</label>
+              <span class="checkmark"></span>
+            </div>
+            <div class="checkbox__wrap">
+              <input type="checkbox" name="color" id="blue" />
+              <label for="blue">синій</label>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <p class="side__container__item">Сезон</p>
+          <p class="side__container__item">Тканина</p>
+          <p class="side__container__item">Рукав</p>
+        </div>
+      </aside>
+      <main class="main__wrap">
+        <div class="main__container__head container--flex">
+          <div class="container--flex">
+            <div class="filter__container">
+              <div class="display__wrapper display__wrapper--big">
+                <div class="container--flex display__container--big">
+                  <div class="display__container__square"></div>
+                  <div class="display__container__square"></div>
+                </div>
+                <div class="container--flex display__container--big">
+                  <div class="display__container__square"></div>
+                  <div class="display__container__square"></div>
+                </div>
+              </div>
+              <div class="display__wrapper display__wrapper--small">
+                <div class="container--flex display__container--small">
+                  <div class="display__square--small"></div>
+                  <div class="display__square--small"></div>
+                  <div class="display__square--small"></div>
+                </div>
+                <div class="container--flex display__container--small">
+                  <div class="display__square--small"></div>
+                  <div class="display__square--small"></div>
+                  <div class="display__square--small"></div>
+                </div>
+                <div class="container--flex display__container--small">
+                  <div class="display__square--small"></div>
+                  <div class="display__square--small"></div>
+                  <div class="display__square--small"></div>
+                </div>
+              </div>
+            </div>
+            <div class="filter__container__mobile container--flex">
+              <p class="filter__item filter__item--mobile">Фільтри</p>
+              <p class="filter__item">Сортувати за: новинки</p>
+            </div>
+          </div>
+          <p class="main__container__title" onclick="openFilter()">
+            Жіночі вишиванки
+          </p>
+        </div>
+        <div id="filter-pop" class="filter__wrap">
+          <p class="filter__popup__item" onclick="openFilter()">Фільтри</p>
+          <div class="filter__popup__container container--flex">
+            <div class="container--flex filter__popup__part">
+              <div class="checkbox__block checkbox__block__size">
+                <p class="side__container__item">Розмір</p>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="32" />
+                  <label for="32">32 | XXS (53)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="34" />
+                  <label for="34">34 | XS (60)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="36" />
+                  <label for="36">36 | S (60)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="38" />
+                  <label for="38">38 | M (60)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="40" />
+                  <label for="40">40 | L (60)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="42" />
+                  <label for="42">42 | XL (58)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="46" />
+                  <label for="46">46 | XXL (13)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="size" id="48" />
+                  <label for="48">48 | XХXL (4)</label>
+                  <span class="checkmark"></span>
+                </div>
+              </div>
+              <div class="checkbox__block checkbox__block__color">
+                <p class="side__container__item side__container__item--select">
+                  Колір
+                </p>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="color" id="white" />
+                  <label for="white">білий</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="color" id="black" />
+                  <label for="black">чорний</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="color" id="beige" />
+                  <label for="beige">бежевий</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="color" id="green" />
+                  <label for="green">зелений</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="color" id="blue" />
+                  <label for="blue">синій</label>
+                  <span class="checkmark"></span>
+                </div>
+              </div>
+            </div>
+            <div class="container--flex filter__popup__part">
+              <div class="checkbox__block">
+                <p class="side__container__item">Сезон</p>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="season" id="easy" />
+                  <label for="easy">Easy collection (3)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="season" id="all" />
+                  <label for="all">Усі сезони (46)</label>
+                  <span class="checkmark"></span>
+                </div>
+              </div>
+              <div class="checkbox__block">
+                <p class="side__container__item">Тканина</p>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="material" id="linen" />
+                  <label for="linen">Льон (60)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="material" id="satin" />
+                  <label for="satin">Сатин (1)</label>
+                  <span class="checkmark"></span>
+                </div>
+              </div>
+              <div class="checkbox__block">
+                <p class="side__container__item">Рукав</p>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="sleeve" id="long" />
+                  <label for="long">Довгий рукав (49)</label>
+                  <span class="checkmark"></span>
+                </div>
+                <div class="checkbox__wrap">
+                  <input type="checkbox" name="sleeve" id="short" />
+                  <label for="short">3/4 рукав (11)</label>
+                  <span class="checkmark"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container--flex product__wrap">
+          <div class="product__container">
+            <img
+              class="product__container__image"
+              src="images/vyshyvanka_lito.jpg"
+              alt="Vyshyvanka Lito"
+            />
+            <p class="product__container__title">
+              Вишиванка з рослинним орнаментом Lito
+            </p>
+            <span class="product__price">2 800 грн.</span>
+          </div>
+          <div class="product__container">
+            <img
+              class="product__container__image"
+              src="images/vyshyvanka_fialka.jpg"
+              alt="Vyshyvanka Fialka"
+            />
+            <p class="product__container__title">
+              Вишиванка блакитного кольору з рослинним орнаментом Fialka
+            </p>
+            <span class="product__price">3 400 грн.</span>
+          </div>
+          <div class="product__container">
+            <img
+              class="product__container__image"
+              src="images/vyshyvanka_nezalezhni.jpg"
+              alt="Vyshyvanka Nezalezhni"
+            />
+            <p class="product__container__title">
+              Лляна вишиванка з геометричним орнаментом Nezalezhni
+            </p>
+            <span class="product__price">4 200 грн.</span>
+          </div>
+          <div class="product__container">
+            <img
+              class="product__container__image"
+              src="images/vyshyvanka_kashtan.jpg"
+              alt="Vyshyvanka Kashtan"
+            />
+            <p class="product__container__title">
+              Вишиванка з рослинним орнаментом Kashtan
+            </p>
+            <span class="product__price">3 800 грн.</span>
+          </div>
+          <div class="product__container">
+            <img
+              class="product__container__image"
+              src="images/vyshyvanka_indi.jpg"
+              alt="Vyshyvanka Indi"
+            />
+            <p class="product__container__title">
+              Легка блузка вільного крою з орнаментом Indi
+            </p>
+            <span class="product__price">3 800 грн.</span>
+          </div>
+          <div class="product__container">
+            <img
+              class="product__container__image"
+              src="images/vyshyvanka_switanok.jpg"
+              alt="Vyshyvanka Svitanok"
+            />
+            <p class="product__container__title">
+              Біла вишиванка вільного крою Svitanok
+            </p>
+            <span class="product__price">2 980 грн.</span>
+          </div>
+        </div>
+        <div class="reload__wrap container--flex">
+          <div class="container--flex reload__container">
+            <p class="reload__container__text reload__container--more">
+              Показати більше
+            </p>
+            <img
+              class="reload__container__image"
+              src="images/reload.svg"
+              alt="Reload"
+            />
+          </div>
+          <div class="container--flex reload__numbers">
+            <p
+              class="reload__container__text reload--numbers reload--numbers--accent"
+            >
+              1
+            </p>
+            <p class="reload__container__text reload--numbers">2</p>
+            <p class="reload__container__text reload--numbers">3</p>
+            <p class="reload__container__text reload--numbers">...</p>
+            <p class="reload__container__text reload--numbers">6</p>
+            <p class="reload__container__text reload--numbers">Наступна</p>
+          </div>
+        </div>
+        <div class="arrow__wrap">
+          <img src="images/up_arrow.svg" alt="Arrow" />
+        </div>
+      </main>
+    </div>
+    <footer class="footer__container">
+      <img class="footer__logo" src="images/etnodim_logo.svg" alt="Logo" />
+      <div class="container container--flex footer__wrap">
+        <div>
+          <ul class="footer__item container--flex">
+            <li>
+              <a class="footer__text footer__text--info" href="#">Про нас</a>
+            </li>
+            <li>
+              <a class="footer__text footer__text--info" href="#">Команда</a>
+            </li>
+            <li>
+              <a class="footer__text footer__text--info" href="#">Блог</a>
+            </li>
+            <li>
+              <a
+                class="footer__text footer__text--accent footer__text--info"
+                href="#"
+                >Drabyna</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="footer__item container--flex footer__info">
+            <li>
+              <a class="footer__text footer__text--info" href="#"
+                >Цікава інформація</a
+              >
+            </li>
+            <li>
+              <a class="footer__text footer__text--info" href="#">Вакансії</a>
+            </li>
+            <li>
+              <a class="footer__text footer__text--info" href="#"
+                >Доставка та оплата</a
+              >
+            </li>
+            <li>
+              <a
+                class="footer__text footer__text--accent footer__text--info"
+                href="#"
+                >Етнодім Маніфест</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer__item container--flex footer__contacts--place">
+          <p class="footer__text footer__text--contacts">Контакти</p>
+          <p class="footer__text">+38 097 888 92 92</p>
+          <p class="footer__text">Україна, м. Київ, вул. Верхній Вал 58/28</p>
+          <div class="footer__contacts container--flex">
+            <p class="footer__text">пн-пт 10:00-20:00</p>
+            <p class="footer__text">сб-нд 11:00-19:00</p>
+          </div>
+          <p class="footer__text footer__copyright--place">
+            © «Етнодім» 2009-2021
+          </p>
+        </div>
+        <div class="footer__social__wrap">
+          <div class="footer__item container--flex footer__social--place">
+            <p class="footer__text footer__text--contacts">Соціальні мережі</p>
+            <div class="container--flex footer__social">
+              <div>
+                <a href="#"
+                  ><img
+                    src="images/facebook_icon.png"
+                    alt="Facebook"
+                    class="social__icon"
+                /></a>
+                <a href="#"
+                  ><img
+                    src="images/youtube_icon.png"
+                    alt="Youtube"
+                    class="social__icon"
+                /></a>
+                <a href="#"
+                  ><img
+                    src="images/mail_icon.png"
+                    alt="Mail"
+                    class="social__icon"
+                /></a>
+              </div>
+              <div>
+                <a href="#"
+                  ><img
+                    src="images/pinterest_icon.png"
+                    alt="Pinterest"
+                    class="social__icon"
+                /></a>
+                <a href="#"
+                  ><img
+                    src="images/instagram_icon.png"
+                    alt="Instagram"
+                    class="social__icon"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer__copyright container--flex">
+            <p class="footer__text">© «Етнодім» 2009-2021</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
